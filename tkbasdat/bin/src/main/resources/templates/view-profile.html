@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/fragment-header :: head"></head>
+<body>
+	<div th:replace="fragments/fragment-header :: navigation"></div>
+
+	<div class="card-header card-header-warning">
+		<h4 class="card-title">Halaman Profile</h4>
+		<p class="card-category">Daftar Artikel Yang di Miliki</p>
+		<button type="button" class="btn btn-primary">
+			<a th:href="'/narasumber/lihatberita/'+${narasumber.nama}"><font color="white">Lihat Artikel</font></a>
+		</button>
+	</div>
+
+	<div class="card-body table-responsive">
+		<table class="table table-hover">
+
+			<tbody>
+				<tr>
+
+					<td th:text="'Nama Pengguna' "></td>
+					<td th:text="${narasumber.nama}"></td>
+				</tr>
+				<tr>
+
+					<td th:text="'Email Pengguna' "></td>
+					<td th:text="${narasumber.email}"></td>
+				</tr>
+				<tr>
+
+					<td th:text="'Tempat Tinggal' "></td>
+					<td th:text="${narasumber.tempat}"></td>
+				</tr>
+				<tr>
+
+					<td th:text="'No Handphone' "></td>
+					<td th:text="${narasumber.no_hp}"></td>
+				</tr>
+
+				<tr>
+
+					<td th:text="'Jumlah Berita' "></td>
+					<td th:text="${narasumber.jumlah_berita}"></td>
+				</tr>
+				<tr>
+
+					<td th:text="'Rerata Kata' "></td>
+					<td th:text="${narasumber.rerata_kata}"></td>
+				</tr>
+
+			</tbody>
+
+		</table>
+		<button type="button" class="btn btn-default">
+			<a href="/">Kembali</a>
+		</button>
+	</div>
+
+
+	<div th:replace="fragments/fragment :: footer"></div>
+</body>
+</html>

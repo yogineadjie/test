@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/fragment-header :: head"></head>
+<body>
+	<div th:replace="fragments/fragment-header :: navigation"></div>
+
+	<div class="card-header card-header-warning">
+		<h4 class="card-title">Halaman Polling</h4>
+		<p class="card-category">Daftar Polling yang Tersedia</p>
+		<button type="button" class="btn btn-primary">
+			<a th:href="'/polling/create-default'"><font color="white">Create Default Polling</font></a>
+		</button>
+		<button type="button" class="btn btn-primary">
+			<a th:href="'/polling/create-advanced'"><font color="white">Create Polling for News</font></a>
+		</button>
+	</div>
+
+	<div class="card">
+		<div class="card-body table-responsive">
+			<table class="table table-hover">
+				<thead class="text-primary">
+					<th>No.</th>
+					<th>Judul Artikel</th>
+					<th>Tanggal Polling</th>
+					<th>Tanggal Berakhir</th>
+					<th>Responden</th>
+					<th>Aksi</th>
+					
+				
+				</thead>
+				<tbody>
+					<tr th:each="polling,iterationStatus: ${polling}">
+						<td th:text="${iterationStatus.count}">No. 1</td>
+						<td th:text="${polling.judul}">judul</td>
+						<td th:text="${polling.polling_start}">start</td>
+						<td th:text="${polling.polling_end}">end</td>
+						<td th:text="${polling.total_responden}">total</td>
+						<td><a th:href="'/'">Ikut Polling</a></td>
+					</tr>
+				</tbody>
+			</table>
+		<button type="button" class="btn btn-default">
+			<a th:href="'/'">Kembali</a>
+		</button>
+		</div>
+	</div>
+
+	<div th:replace="fragments/fragment :: footer"></div>
+</body>
+</html>

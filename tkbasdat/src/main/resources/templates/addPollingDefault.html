@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/fragment-header :: head"></head>
+	<body>
+		 <div th:replace="fragments/fragment-header :: navigation"></div>
+		 	<div class="form-container">
+				<form class="form-control" th:action="@{/polling/create/submit-default}" method="post">
+					<div class="form-group">
+		      			<label for="desc">Description</label>
+		      			<input type="text" class="form-control" id="desc" name="desc"  required="required" />
+		    			</div>
+		    			<div class="form-group">
+		      			<label for="startDate">Start Date</label>
+		      			<input type="date" class="form-control" id="startDate" name="startDate" required="required" />
+		    			</div>
+		    			<div class="form-group">
+		      			<label for="endDate">End Date</label>
+		      			<input type="date" class="form-control" id="endDate" name="endDate" required="required" />
+		    			</div>
+		    			<div class="form-group">
+		      			<label for="q1">Question 1</label>
+		      			<input type="text" class="form-control" id="q1" name="q1" required="required" />
+		    			</div>
+		    			<div class="form-group">
+		      			<label for="q2">Question 2</label>
+		      			<input type="text" class="form-control" id="q2" name="q2" required="required" />
+		    			</div>
+			
+					<div style="margin-bottom:10px;">
+						<button class="btn btn-primary" type="submit" name="action" value="Submit">Submit</button>
+					</div>
+				</form>
+			</div>
+		 <div th:replace="fragments/fragment :: footer"></div>
+	</body>
+</html>
+

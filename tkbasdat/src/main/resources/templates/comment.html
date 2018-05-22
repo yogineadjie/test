@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/fragment-header :: head"></head>
+	<body>
+		 <div th:replace="fragments/fragment-header :: navigation"></div>
+		 	<div class="home_container_rating">
+		 	<h4 class="home_greeting_subtitle">Share your thought about the news.</h4>
+		 	<form th:action="@{/komentar/submit}" method="post">
+			 	<div class="comment_field_container">
+					<div class="md-form" style="width:39%;">
+					    <textarea style="text-align:center;height:30px;" type="text" class="md-textarea form-control" rows="3" name="komentar"></textarea>
+					</div>
+			 	</div>
+			 	<div style="margin-top:2.5%;">
+			 		<input type="hidden" name="url" th:value="${url}"/>
+						<input class="button-comment" type="submit" value="Comment"/>
+	            </div>
+            </form>
+		 </div>
+		 <div th:replace="fragments/fragment :: footer"></div>
+	</body>
+</html>

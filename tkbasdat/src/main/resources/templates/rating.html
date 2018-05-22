@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/fragment-header :: head"></head>
+	<body>
+		 <div th:replace="fragments/fragment-header :: navigation"></div>
+		 	<div class="home_container_rating">
+		 	<h4 class="home_greeting_subtitle">How was the news you've just read?</h4>
+		 	<div class="rating_field_container">
+		 		<form th:action="@{/rating/submit}" method="post">
+		 			<input type="hidden" name="url" th:value="${url}"/>
+		 			<input type="hidden" name="nilai" th:value="1"/>
+		 			<button style="border-color:#fff;border-style:unset;padding:0px;margin-right: 20px;" type="submit"><img class="icon_rate" id="icon1" src="/images/rate_1.png"></button>
+		 		</form>
+		 		
+		 		<form th:action="@{/rating/submit}" method="post">
+		 			<input type="hidden" name="url" th:value="${url}"/>
+		 			<input type="hidden" name="nilai" th:value="2"/>
+		 			<button style="border-color:#fff;border-style:unset;padding:0px;margin-right: 20px;" type="submit"><img class="icon_rate" id="icon1" src="/images/rate_2.png"></button>
+		 		</form>
+		 		
+		 		<form th:action="@{/rating/submit}" method="post">
+		 			<input type="hidden" name="url" th:value="${url}"/>
+		 			<input type="hidden" name="nilai" th:value="3"/>
+		 			<button style="border-color:#fff;border-style:unset;padding:0px;margin-right: 20px;" type="submit"><img class="icon_rate" id="icon1" src="/images/rate_3.png"></button>
+		 		</form>
+		 		
+		 		<form th:action="@{/rating/submit}" method="post">
+		 			<input type="hidden" name="url" th:value="${url}"/>
+		 			<input type="hidden" name="nilai" th:value="4"/>
+		 			<button style="border-color:#fff;border-style:unset;padding:0px;margin-right: 20px;" type="submit"><img class="icon_rate" id="icon1" src="/images/rate_4.png"></button>
+		 		</form>
+		 		
+		 		<form th:action="@{/rating/submit}" method="post">
+		 			<input type="hidden" name="url" th:value="${url}"/>
+		 			<input type="hidden" name="nilai" th:value="5"/>
+		 			<button style="border-color:#fff;border-style:unset;padding:0px;margin-right: 20px;" type="submit"><img class="icon_rate" id="icon1" src="/images/rate_5.png"></button>
+		 		</form>
+		 		
+		 	</div>
+		 	<p id="icon_desc"></p>
+		 </div>
+		 <div th:replace="fragments/fragment :: footer"></div>
+	</body>
+</html>

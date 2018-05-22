@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/fragment-header :: head"></head>
+	<body>
+		 <div th:replace="fragments/fragment-header :: navigation"></div>
+		 
+		 <div class="card-header card-header-warning">
+		<h4 class="card-title">Halaman Berita</h4>
+		<p class="card-category">Daftar Berita yang Tersedia</p>
+		<button type="button" class="btn btn-primary">
+			<a th:href="'/berita/create'"><font color="white">Create New Berita</font></a>
+		</button>
+	</div>
+
+	<div class="card">
+		<div class="card-body table-responsive">
+			<table class="table table-hover">
+				<thead class="text-primary">
+					<th>No.</th>
+					<th>Judul Artikel</th>
+					<th>Topik</th>
+					<th>Penulis</th>
+					<th>Aksi</th>
+					
+				
+				</thead>
+				<tbody>
+					<tr th:each="berita,iterationStatus: ${berita}">
+						<td th:text="${iterationStatus.count}">No. 1</td>
+						<td th:text="${berita.judul}">judul</td>
+						<td th:text="${berita.topik}">start</td>
+						<td th:text="${berita.nama}">end</td>
+						<td><a th:href="'/berita/detail/' + ${berita.judul}" th:text="Detail"></td>
+					</tr>
+				</tbody>
+			</table>
+		<button type="button" class="btn btn-default">
+			<a th:href="'/'">Kembali</a>
+		</button>
+		</div>
+	</div>
+		 
+		 <div th:replace="fragments/fragment :: footer"></div>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/fragment-header :: head"></head>
+<body>
+	<div th:replace="fragments/fragment-header :: navigation"></div>
+
+	<div class="card-header card-header-warning">
+		<h4 class="card-title">Halaman Artikel</h4>
+		<p class="card-category">Daftar Artikel yang Anda Tulis</p>
+	</div>
+
+	<div class="card">
+		<div class="card-body table-responsive">
+			<table class="table table-hover">
+				<thead class="text-primary">
+					<th>No.</th>
+					<th>Judul Artikel</th>
+					<th>Topik</th>
+					<th>Rating</th>
+					<th>Penulis</th>
+				
+				</thead>
+				<tbody>
+					<tr th:each="narasumber,iterationStatus: ${narasumber}">
+						<td th:text="${iterationStatus.count}">No. 1</td>
+						<td th:text="${narasumber.judul}">judul</td>
+						<td th:text="${narasumber.topik}">topik</td>
+						<td th:text="${narasumber.rerata_rating}">rating</td>
+						<td th:text="${narasumber.nama}">penulis</td>
+					</tr>
+				</tbody>
+			</table>
+		<button type="button" class="btn btn-default">
+			<a th:href="'/narasumber/'+${#httpServletRequest.getRemoteUser()}">Kembali</a>
+		</button>
+		</div>
+	</div>
+
+	<div th:replace="fragments/fragment :: footer"></div>
+</body>
+</html>

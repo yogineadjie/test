@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/fragment-header :: head"></head>
+	<body>
+		 <div th:replace="fragments/fragment-header :: navigation"></div>
+		 	<div class="container_detail_berita">
+	            <div class="resource--content" style="width:35%;display:inline-block">
+				    <div class="resource--content-border" style="border-color:#ff5252"></div>
+				    <div class="resource--content-headline" data-g-category="resources" data-g-action="click" data-g-label="resource: Google Fonts">Details</div>
+				    <div class="resource--content-body" style="width:25%;display:inline-block;">
+				    		<div class="label-title-detail-berita">By</div>
+				    		<div class="label-title-detail-berita">Topik</div>
+				    		<div class="label-title-detail-berita">URL</div>
+				    		<div class="label-title-detail-berita">Created</div>
+				    		<div class="label-title-detail-berita">Last Update</div>
+				    		<div class="label-title-detail-berita">University</div>
+				    		<div class="label-title-detail-berita">Avg. Rating</div>
+				    	</div>
+				    	<div class="resource--content-body" style="width:70%;display:inline-block;">
+				    		<div class="label-title-detail-berita">: <b th:text="${berita.nama}"></b></div>
+				    		<div class="label-title-detail-berita">: <b th:text="${berita.topik}">Education</b></div>
+				    		<div class="label-title-detail-berita">: <b th:text="${berita.url}">https://id.pinterest.com/pin/29329</b></div>
+				    		<div class="label-title-detail-berita">: <b th:text="${berita.created_at}">February 14, 2018</b></div>
+				    		<div class="label-title-detail-berita">: <b th:text="${berita.updated_at}">March 4, 2018</b></div>
+				    		<div class="label-title-detail-berita">: <b th:text="'University of ' + ${berita.provinsi}">University of Indonesia</b></div>
+				    		<div class="label-title-detail-berita">: <b th:text="${berita.rerata_rating}">4.5</b></div>
+				    	</div>
+				    	<div class="resource--content-headline" data-g-category="resources" data-g-action="click" data-g-label="resource: Google Fonts">
+				    		<div style="width:48.5%;display:inline-block;" class="button-comment">
+				    			<a th:href="@{'/komentar?url=' + ${berita.url}}"><font color="white">Add a comment</font></a>
+				    		</div>
+				    		<div style="width:48.5%;display:inline-block;" class="button-comment">
+				    			<a th:href="@{'/rating?url=' + ${berita.url}}"><font color="white">Give a rating</font></a>
+				    		</div>
+				    	</div>
+		  		</div>
+		  	</div>
+		  	<div class="container_detail_berita_response">
+	            <div class="resource--content" style="width:37.5	%;display:inline-block">
+				    <div class="resource--content-border" style="border-color:#ff5252"></div>
+				    <div class="resource--content-headline" data-g-category="resources" data-g-action="click" data-g-label="resource: Google Fonts">What people say?</div>
+				    <div class="resource--content-body" style="width:25%;display:inline-block;">
+				    		<div th:if="${#lists.isEmpty(komentars)}" class="container-comment">
+					    		<div><b>Nobody cares about this :(</b></div>
+					    		<div style="color:#9a9898;font-size:14px"><i>Just please get off your lazy hands and start to write something about this News</i></div>
+					    </div>
+				    		<div th:each="komentar,iterationStatus: ${komentars}" class="container-comment">
+					    	<div><a th:href="${komentar.getUrlUser()}"><b th:text="${komentar.getNamaUser()}">John Cornor</b></a></div>
+					    		<div style="color:#9a9898;font-size:14px"><i>"</i><i th:text="${komentar.getKonten()}">"I like how they explain the detail with clear yet understandable sentences"</i><i>"</i></div>
+					    </div>
+					    
+				    		
+				    	</div>
+		  		</div>
+		 	</div>
+		 <div th:replace="fragments/fragment :: footer"></div>
+	</body>
+</html>
